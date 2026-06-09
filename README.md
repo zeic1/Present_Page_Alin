@@ -1,1 +1,611 @@
-# Present_Page_Alin
+
+Claude finished the response
+i need you to edit the html code so: replace the names of strategies with indexes. iqdp becomes 'strategy one', xitl becomes 'strategy two 'and agwv becomes 'strategy three'. delete profile photo section and at the end instead of the link to darwin i would like to implement a link to the instagram page, can you give me some indications how to generate a qr code or any other better alternative. ask me any questions about the project before right away
+
+8:23 PM
+
+Assessed file availability for HTML editing task
+Assessed file availability for HTML editing task
+Let me check what files you've uploaded.
+
+
+Check for uploaded files
+Check for uploaded files
+It looks like there's no HTML file uploaded yet. Could you upload the file so I can take a look and make the edits?
+
+
+alin_presentare_v3.html
+html
+
+8:23 PM
+
+I cannot provide a summary because the user prompt is empty
+I cannot provide a summary because the user prompt is empty
+Claude's response was interrupted.
+
+alin_presentare_v3.html
+html
+
+i need you to edit the html code so: replace the names of strategies with indexes. iqdp becomes 'strategy one', xitl becomes 'strategy two 'and agwv becomes 'strategy three'. delete profile photo section and at the end instead of the link to darwin i would like to implement a link to the instagram page, can you give me some indications how to generate a qr code or any other better alternative. ask me any questions about the project before right away
+
+8:24 PM
+
+Assessed scope and identified clarification needs
+Assessed scope and identified clarification needs
+Got it — I've read through the full file. A few quick questions before I start editing:
+
+Instagram URL — what's the exact Instagram page link? (e.g. https://www.instagram.com/username)
+Strategy names everywhere — the ticker names IQDP/XITL/AGWV appear in a lot of places: the cards, the heatmap switcher buttons, the KPI subtitles, the risk section, the footer, and inside the JavaScript data object. Should I replace them everywhere with "Strategy One/Two/Three", or keep the original codes in some spots (like the JS data keys) for technical reasons?
+CTA section tone — the current call-to-action says "View the live DARWINs →". Should the new button say something like "Follow on Instagram →", or do you have specific wording in mind?
+As for the QR code question — for a single-file HTML like this, the cleanest approach is to embed the QR code directly as an inline SVG. I can generate it right in the page with no external dependencies, so it works offline and looks crisp at any size. That's better than relying on a third-party API (which could go down) or a raster image (which gets blurry when scaled). I'll bake it into the CTA section once you give me the Instagram URL.
+
+https://www.instagram.com/alincatal1n_
+2.replace everywhere
+
+the cta section should say : "Instagram"
+
+8:26 PM
+
+Orchestrated systematic edits across multiple sections
+Orchestrated systematic edits across multiple sections
+Now let me work through the edits one by one.
+
+
+Devised QR code generation strategy for Instagram integration
+Devised QR code generation strategy for Instagram integration
+Now let me generate the QR code for the Instagram link and replace the CTA section.
+
+
+Prepared Instagram QR code integration for CTA replacement
+Prepared Instagram QR code integration for CTA replacement
+Now let me replace the CTA section with the Instagram QR code and link:
+
+
+Verified file integrity across key sections
+Verified file integrity across key sections
+Now let me do a final check to make sure nothing was missed:
+
+
+Verified content and prepared for delivery
+Verified content and prepared for delivery
+All clean — zero leftover references. Let me copy the final file to outputs.
+
+
+Synthesized link replacement and CTA label modifications
+Synthesized link replacement and CTA label modifications
+Here's a summary of everything changed:
+
+Strategy renaming — every instance of IQDP → "Strategy One", XITL → "Strategy Two", AGWV → "Strategy Three" across the card tickers, KPI subtitles, risk section note, heatmap switcher buttons, JavaScript data keys, and footer.
+
+Profile photo removed — both the <img> tag and its .profile-pic CSS block are gone.
+
+CTA section — the old "View the live DARWINs" button is replaced with an embedded QR code (pure inline SVG, no external dependencies) that links to https://www.instagram.com/alincatal1n_, plus a clickable "Instagram →" button underneath. The QR code renders crisp at any size and works offline since it's baked directly into the HTML.
+
+
+Alin presentare v4
+Code · HTML 
+what would be the best way for me to access this page on phone?
+
+8:30 PM
+
+Weighed hosting solutions for mobile accessibility
+Weighed hosting solutions for mobile accessibility
+Since it's a single self-contained HTML file, the simplest path is to host it for free so it's just a URL you can open anywhere (and share with others). A few options ranked by ease:
+
+Netlify Drop — the fastest. Go to app.netlify.com/drop, drag your HTML file onto the page, and you get a live URL in seconds. No account needed for a temporary link, or sign up free to keep it permanently and set a custom subdomain like yourname.netlify.app.
+
+GitHub Pages — if you already use GitHub (which you do), push the file to a repo, enable Pages in the repo settings, and it's live at username.github.io/repo-name. Slightly more steps but you get version control for free, which is nice since you're iterating on this file.
+
+Tiiny.host — another drag-and-drop option, gives you a link instantly. Free tier is limited but works for sharing.
+
+Any of these also means the QR code and the Instagram button work properly on mobile since the page is served over HTTPS. If you just open a local .html file on your phone, some things (like Google Fonts) might not load depending on the browser.
+
+I'd go with Netlify Drop if you just want to see it on your phone right now, or GitHub Pages if you want a stable home for it long-term. Want help setting up either one?
+
+
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+
+
+raw
+Alin presentare v4 · HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three DARWINs · Track Record</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e1a;
+    --panel:#121829;
+    --panel-2:#0f1422;
+    --line:#1f2740;
+    --ink:#e8edf7;
+    --muted:#8b95ad;
+    --dim:#5c647c;
+    --pos:#8ef028;      /* neon lime — gains */
+    --pos-soft:rgba(142,240,40,.12);
+    --neg:#ff4d6d;      /* red — losses */
+    --neg-soft:rgba(255,77,109,.12);
+    --gold:#f6b829;
+    --accent:#6c8cff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(900px 500px at 78% -8%, rgba(108,140,255,.10), transparent 60%),
+      radial-gradient(800px 480px at 8% 4%, rgba(142,240,40,.06), transparent 55%);
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  .mono{font-family:'JetBrains Mono',monospace;font-variant-numeric:tabular-nums}
+  .pos{color:var(--pos)} .neg{color:var(--neg)}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--dim);
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);background:rgba(10,14,26,.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-family:'Archivo';font-weight:900;letter-spacing:-.02em;font-size:1.05rem;display:flex;gap:10px;align-items:center}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--pos);box-shadow:0 0 14px var(--pos)}
+  .nav-links{display:flex;gap:26px;font-size:.86rem;color:var(--muted)}
+  .nav-links a{color:inherit;text-decoration:none;transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  @media(max-width:720px){.nav-links{display:none}}
+
+  /* ---------- HERO ---------- */
+  header{padding:96px 0 60px;position:relative}
+
+  .hero-eyebrow{margin-bottom:26px;opacity:0;animation:rise .7s .1s forwards}
+  .hero h1{
+    font-family:'Archivo';font-weight:900;letter-spacing:-.035em;line-height:.96;
+    font-size:clamp(2.6rem,7vw,5.4rem);max-width:14ch;
+  }
+  .hero h1 .l{display:inline-block;opacity:0;transform:translateY(28px);animation:rise .8s forwards}
+  .hero p.lede{
+    margin-top:28px;max-width:54ch;color:var(--muted);font-size:1.12rem;
+    opacity:0;animation:rise .8s .55s forwards;
+  }
+  .hero p.lede b{color:var(--ink);font-weight:600}
+
+  /* headline KPI strip */
+  .kpis{
+    margin-top:54px;display:grid;grid-template-columns:repeat(4,1fr);
+    gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    opacity:0;animation:rise .8s .7s forwards;
+  }
+  .kpi{background:var(--panel);padding:26px 24px;position:relative}
+  .kpi .lab{font-size:.74rem;color:var(--muted);letter-spacing:.04em;display:block;margin-bottom:12px}
+  .kpi .val{font-family:'Archivo';font-weight:900;font-size:clamp(1.7rem,3.4vw,2.5rem);letter-spacing:-.03em;line-height:1}
+  .kpi .sub{font-size:.72rem;color:var(--dim);margin-top:8px}
+  @media(max-width:860px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:430px){.kpis{grid-template-columns:1fr}}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:72px 0;position:relative}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:38px;flex-wrap:wrap}
+  .sec-head h2{font-family:'Archivo';font-weight:800;letter-spacing:-.03em;font-size:clamp(1.6rem,3.4vw,2.3rem)}
+  .sec-head .note{color:var(--muted);font-size:.92rem;margin-left:auto;max-width:38ch}
+  @media(max-width:720px){.sec-head .note{margin-left:0;flex-basis:100%}}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- DARWIN CARDS ---------- */
+  .darwins{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:860px){.darwins{grid-template-columns:1fr}}
+  .dcard{
+    background:linear-gradient(180deg,var(--panel),var(--panel-2));
+    border:1px solid var(--line);border-radius:18px;padding:26px;
+    position:relative;overflow:hidden;transition:transform .35s,border-color .35s,box-shadow .35s;
+  }
+  .dcard::after{content:"";position:absolute;inset:0;border-radius:18px;pointer-events:none;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+  .dcard:hover{transform:translateY(-6px);border-color:#2c3759;box-shadow:0 24px 50px -28px rgba(0,0,0,.8)}
+  .dcard .tick{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .dcard .ticker{font-family:'Archivo';font-weight:900;font-size:1.5rem;letter-spacing:.02em}
+  .dcard .chip{font-family:'JetBrains Mono';font-size:.62rem;letter-spacing:.12em;padding:5px 9px;border-radius:999px;
+    border:1px solid var(--line);color:var(--muted);text-transform:uppercase}
+  .dcard .chip.silver{color:var(--accent);border-color:rgba(108,140,255,.4)}
+  .dcard .headline{font-family:'Archivo';font-weight:900;font-size:2.7rem;letter-spacing:-.03em;line-height:1;margin:18px 0 4px}
+  .dcard .headline-lab{font-size:.74rem;color:var(--muted)}
+  .dcard .rows{margin-top:22px;border-top:1px solid var(--line)}
+  .drow{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+  .drow .k{color:var(--muted)}
+  .drow .v{font-family:'JetBrains Mono';font-weight:600}
+  .barwrap{height:6px;border-radius:6px;background:var(--panel-2);margin-top:16px;overflow:hidden;border:1px solid var(--line)}
+  .bar{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--pos));width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+
+  /* ---------- HEATMAP ---------- */
+  .tablecard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:8px;overflow-x:auto}
+  table.heat{border-collapse:collapse;width:100%;min-width:780px;font-family:'JetBrains Mono';font-size:.8rem}
+  table.heat th{color:var(--dim);font-weight:500;font-size:.7rem;padding:14px 6px;text-align:center;letter-spacing:.04em}
+  table.heat th.row-h,table.heat td.row-h{text-align:left;color:var(--ink);font-weight:700;padding-left:16px;width:90px}
+  table.heat td{text-align:center;padding:13px 6px;border-radius:7px}
+  .cell{display:inline-block;width:100%;padding:8px 2px;border-radius:7px;font-weight:600;transition:transform .2s}
+  .cell:hover{transform:scale(1.08)}
+  .empty{color:var(--dim)}
+  .total-col{font-weight:700}
+  .switcher{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+  .switcher button{
+    font-family:'JetBrains Mono';font-size:.78rem;letter-spacing:.08em;cursor:pointer;
+    background:var(--panel);color:var(--muted);border:1px solid var(--line);
+    padding:9px 18px;border-radius:999px;transition:all .25s;
+  }
+  .switcher button:hover{color:var(--ink);border-color:#2c3759}
+  .switcher button.active{background:var(--pos);color:#0a0e1a;border-color:var(--pos);font-weight:700}
+
+  /* ---------- RISK PANEL ---------- */
+  .riskgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:760px){.riskgrid{grid-template-columns:1fr}}
+  .riskcol{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .rrow{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;border-bottom:1px solid var(--line)}
+  .rrow:last-child{border-bottom:none}
+  .rrow .k{color:var(--muted);font-size:.92rem}
+  .rrow .v{font-family:'JetBrains Mono';font-weight:700;font-size:1.05rem}
+  .risk-foot{margin-top:18px;color:var(--dim);font-size:.8rem;font-family:'JetBrains Mono'}
+
+  /* ---------- ACHIEVEMENTS ---------- */
+  .ach{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:760px){.ach{grid-template-columns:1fr}}
+  .acard{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);
+    border-radius:16px;padding:24px;display:flex;gap:18px;align-items:flex-start;transition:border-color .3s,transform .3s}
+  .acard:hover{border-color:#2c3759;transform:translateY(-3px)}
+  .acard .ic{width:46px;height:46px;border-radius:12px;flex:none;display:grid;place-items:center;
+    background:var(--pos-soft);border:1px solid rgba(142,240,40,.25);font-size:1.4rem}
+  .acard.gold .ic{background:rgba(246,184,41,.12);border-color:rgba(246,184,41,.3)}
+  .acard.rank .ic{background:rgba(108,140,255,.12);border-color:rgba(108,140,255,.3)}
+  .acard h4{font-family:'Archivo';font-weight:800;font-size:1rem;margin-bottom:5px;letter-spacing:-.01em}
+  .acard p{color:var(--muted);font-size:.88rem}
+  .acard .big{font-family:'Archivo';font-weight:900;font-size:1.9rem;letter-spacing:-.02em}
+
+  /* GOLD callout */
+  .gold-band{
+    margin-top:48px;border-radius:18px;padding:30px 32px;
+    background:linear-gradient(120deg,rgba(246,184,41,.16),rgba(246,184,41,.04));
+    border:1px solid rgba(246,184,41,.35);display:flex;gap:22px;align-items:center;flex-wrap:wrap;
+  }
+  .gold-band .tag{font-family:'JetBrains Mono';font-size:.7rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+  .gold-band h3{font-family:'Archivo';font-weight:900;font-size:1.5rem;letter-spacing:-.02em;margin:6px 0 8px}
+  .gold-band p{color:var(--muted);max-width:60ch;font-size:.95rem}
+
+  /* ---------- CTA / FOOTER ---------- */
+  .cta{
+    margin-top:30px;border-radius:22px;border:1px solid var(--line);
+    background:radial-gradient(700px 320px at 70% 0%,rgba(108,140,255,.14),transparent),var(--panel);
+    padding:60px 44px;text-align:center;
+  }
+  .cta h2{font-family:'Archivo';font-weight:900;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.03em;max-width:18ch;margin:0 auto}
+  .cta p{color:var(--muted);margin:18px auto 30px;max-width:50ch}
+  .btn{
+    display:inline-block;font-family:'JetBrains Mono';font-weight:700;letter-spacing:.06em;
+    background:var(--pos);color:#0a0e1a;text-decoration:none;padding:15px 32px;border-radius:999px;
+    transition:transform .25s,box-shadow .25s;box-shadow:0 0 0 rgba(142,240,40,0);
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(142,240,40,.55)}
+  footer{padding:46px 0;border-top:1px solid var(--line);margin-top:80px;color:var(--dim);font-size:.82rem}
+  footer .fin{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+  .disclaimer{margin-top:18px;color:var(--dim);font-size:.74rem;max-width:90ch;line-height:1.6}
+
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="brand"><span class="dot"></span>THREE&nbsp;DARWINS</div>
+    <div class="nav-links">
+      <a href="#strategies">Strategies</a>
+      <a href="#returns">Returns</a>
+      <a href="#risk">Risk</a>
+      <a href="#track">Track record</a>
+      <a href="#invest">Invest</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+
+    <div class="hero-eyebrow eyebrow">Darwinex Zero · DarwinIA Silver · Allocation-funded</div>
+    <h1>
+      <span class="l" style="animation-delay:.15s">Three</span>
+      <span class="l" style="animation-delay:.27s">professional</span>
+      <span class="l pos" style="animation-delay:.39s">strategies,</span>
+      <span class="l" style="animation-delay:.51s">one</span>
+      <span class="l" style="animation-delay:.6s">disciplined</span>
+      <span class="l" style="animation-delay:.69s">trader.</span>
+    </h1>
+    <p class="lede">A risk-first systematic track record across three independent DARWIN indices — each with its own independent risk engine. <b>Top-50 allocation, a #1 historical rank, and a GOLD promotion in progress.</b></p>
+
+    <div class="kpis">
+      <div class="kpi">
+        <span class="lab">Best return (to origin)</span>
+        <span class="val pos"><span class="count" data-to="41.25" data-suffix="%" data-dec="2">0%</span></span>
+        <span class="sub">Strategy Two · since inception</span>
+      </div>
+      <div class="kpi">
+        <span class="lab">Best Sharpe ratio</span>
+        <span class="val pos"><span class="count" data-to="5.99" data-dec="2">0</span></span>
+        <span class="sub">Strategy One · Sortino 9.36</span>
+      </div>
+      <div class="kpi">
+        <span class="lab">Lowest max drawdown</span>
+        <span class="val neg"><span class="count" data-to="-4.20" data-suffix="%" data-dec="2">0%</span></span>
+        <span class="sub">Strategy One · peak-to-trough</span>
+      </div>
+      <div class="kpi">
+        <span class="lab">Assets under management</span>
+        <span class="val"><span class="count" data-to="1851955" data-prefix="€" data-dec="0" data-group="1">€0</span></span>
+        <span class="sub">Combined, 3 DARWINs</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STRATEGIES -->
+<section id="strategies">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">01 — The book</span>
+      <h2>Three DARWINs, three return profiles</h2>
+      <p class="note">Each index combines the trader's signals with Darwinex's independent Risk Engine. All three are DarwinIA Silver active.</p>
+    </div>
+    <div class="darwins">
+
+      <div class="dcard reveal">
+        <div class="tick"><span class="ticker">Strategy One</span><span class="chip silver">Silver · Active</span></div>
+        <span class="headline-lab">Return to origin</span>
+        <div class="headline pos">+36.34%</div>
+        <div class="rows">
+          <div class="drow"><span class="k">Max drawdown</span><span class="v neg">-4.20%</span></div>
+          <div class="drow"><span class="k">Return · 6 mo</span><span class="v pos">+23.86%</span></div>
+          <div class="drow"><span class="k">Annualised</span><span class="v pos">+65.70%</span></div>
+          <div class="drow"><span class="k">AUM</span><span class="v">€1,053,247</span></div>
+        </div>
+        <div class="barwrap"><div class="bar" data-w="100"></div></div>
+      </div>
+
+      <div class="dcard reveal" style="transition-delay:.08s">
+        <div class="tick"><span class="ticker">Strategy Two</span><span class="chip silver">Silver · Active</span></div>
+        <span class="headline-lab">Return to origin</span>
+        <div class="headline pos">+41.25%</div>
+        <div class="rows">
+          <div class="drow"><span class="k">Max drawdown</span><span class="v neg">-6.48%</span></div>
+          <div class="drow"><span class="k">Return · 6 mo</span><span class="v pos">+20.46%</span></div>
+          <div class="drow"><span class="k">2025 total</span><span class="v pos">+39.43%</span></div>
+          <div class="drow"><span class="k">AUM</span><span class="v">€698,707</span></div>
+        </div>
+        <div class="barwrap"><div class="bar" data-w="66"></div></div>
+      </div>
+
+      <div class="dcard reveal" style="transition-delay:.16s">
+        <div class="tick"><span class="ticker">Strategy Three</span><span class="chip silver">Silver · Active</span></div>
+        <span class="headline-lab">Return to origin</span>
+        <div class="headline pos">+14.32%</div>
+        <div class="rows">
+          <div class="drow"><span class="k">Max drawdown</span><span class="v neg">-11.93%</span></div>
+          <div class="drow"><span class="k">Return · 6 mo</span><span class="v pos">+6.25%</span></div>
+          <div class="drow"><span class="k">2025 total</span><span class="v pos">+12.89%</span></div>
+          <div class="drow"><span class="k">AUM</span><span class="v">€100,000</span></div>
+        </div>
+        <div class="barwrap"><div class="bar" data-w="34"></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RETURNS HEATMAP -->
+<section id="returns">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">02 — Monthly returns</span>
+      <h2>Consistency, month by month</h2>
+      <p class="note">Net monthly performance per DARWIN. Green is a gain, red a loss. Switch indices below.</p>
+    </div>
+    <div class="reveal">
+      <div class="switcher">
+        <button data-d="Strategy One" class="active">Strategy One</button>
+        <button data-d="Strategy Two">Strategy Two</button>
+        <button data-d="Strategy Three">Strategy Three</button>
+      </div>
+      <div class="tablecard">
+        <table class="heat">
+          <thead><tr id="heat-head"></tr></thead>
+          <tbody id="heat-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RISK -->
+<section id="risk">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">03 — Risk metrics</span>
+      <h2>The numbers behind the curve</h2>
+      <p class="note">Full statistics for the flagship index, Strategy One — the strongest risk-adjusted profile of the three.</p>
+    </div>
+    <div class="reveal">
+      <div class="riskgrid">
+        <div class="riskcol">
+          <div class="rrow"><span class="k">Return</span><span class="v pos">+36.34%</span></div>
+          <div class="rrow"><span class="k">Annualised return</span><span class="v pos">+65.70%</span></div>
+          <div class="rrow"><span class="k">Max drawdown</span><span class="v neg">-4.20%</span></div>
+          <div class="rrow"><span class="k">Daily std deviation</span><span class="v">0.71%</span></div>
+          <div class="rrow"><span class="k">Annualised volatility</span><span class="v">10.97%</span></div>
+          <div class="rrow"><span class="k">Sharpe ratio</span><span class="v pos">5.99</span></div>
+        </div>
+        <div class="riskcol">
+          <div class="rrow"><span class="k">Sortino ratio</span><span class="v pos">9.36</span></div>
+          <div class="rrow"><span class="k">Skewness</span><span class="v pos">0.62</span></div>
+          <div class="rrow"><span class="k">Kurtosis</span><span class="v">3.03</span></div>
+          <div class="rrow"><span class="k">All-time high quote</span><span class="v pos">139.71</span></div>
+          <div class="rrow"><span class="k">Days since ATH</span><span class="v">2</span></div>
+          <div class="rrow"><span class="k">Return since ATH</span><span class="v neg">-2.41%</span></div>
+        </div>
+      </div>
+      <p class="risk-foot">Positive skew + Sharpe near 6 = small, frequent losses and a long right tail of gains. Risk is the headline, not an afterthought.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRACK RECORD / ACHIEVEMENTS -->
+<section id="track">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">04 — Track record</span>
+      <h2>Recognised by the allocation engine</h2>
+      <p class="note">DarwinIA milestones earned on the platform — not self-reported.</p>
+    </div>
+    <div class="ach reveal">
+      <div class="acard rank">
+        <div class="ic">①</div>
+        <div><h4>Best historical rank <span class="big pos">#01</span></h4><p>Ranked first in DarwinIA Silver — August 2025.</p></div>
+      </div>
+      <div class="acard">
+        <div class="ic">💰</div>
+        <div><h4>Top 50 current allocation</h4><p>Among the 50 DARWINs currently receiving the most capital allocation.</p></div>
+      </div>
+      <div class="acard">
+        <div class="ic">🚀</div>
+        <div><h4>3 consecutive months funded</h4><p>Received seed capital allocation three months running.</p></div>
+      </div>
+      <div class="acard rank">
+        <div class="ic">②</div>
+        <div><h4>Second flagship rank <span class="big" style="color:var(--accent)">#02</span></h4><p>A second DARWIN reached rank #2 — November 2025.</p></div>
+      </div>
+    </div>
+
+    <div class="gold-band reveal">
+      <div>
+        <span class="tag">Promotion in progress</span>
+        <h3>Ascending to DarwinIA <span class="pos">GOLD</span></h3>
+        <p>Hold the return to month-end and the book moves up to GOLD — unlocking a larger seed-capital allocation and opening the DARWIN to outside investment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="invest">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>Back a track record, not a promise.</h2>
+      <p>Three independently risk-managed indices, audited on Darwinex Zero. Follow for updates and behind-the-scenes insights.</p>
+      <div style="margin:30px auto 28px;width:180px;height:180px;background:#e8edf7;border-radius:16px;padding:12px;display:grid;place-items:center">
+        <svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <rect width="33" height="33" fill="#e8edf7"/>
+          <path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM10,2H11V3H10zM12,2H13V3H12zM16,2H17V3H16zM17,2H18V3H17zM18,2H19V3H18zM20,2H21V3H20zM24,2H25V3H24zM25,2H26V3H25zM26,2H27V3H26zM27,2H28V3H27zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM2,3H3V4H2zM8,3H9V4H8zM11,3H12V4H11zM18,3H19V4H18zM19,3H20V4H19zM20,3H21V4H20zM21,3H22V4H21zM22,3H23V4H22zM24,3H25V4H24zM30,3H31V4H30zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM11,4H12V5H11zM14,4H15V5H14zM17,4H18V5H17zM18,4H19V5H18zM19,4H20V5H19zM20,4H21V5H20zM21,4H22V5H21zM22,4H23V5H22zM24,4H25V5H24zM26,4H27V5H26zM27,4H28V5H27zM28,4H29V5H28zM30,4H31V5H30zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM10,5H11V6H10zM11,5H12V6H11zM12,5H13V6H12zM16,5H17V6H16zM17,5H18V6H17zM20,5H21V6H20zM21,5H22V6H21zM24,5H25V6H24zM26,5H27V6H26zM27,5H28V6H27zM28,5H29V6H28zM30,5H31V6H30zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM11,6H12V7H11zM13,6H14V7H13zM17,6H18V7H17zM19,6H20V7H19zM20,6H21V7H20zM22,6H23V7H22zM24,6H25V7H24zM26,6H27V7H26zM27,6H28V7H27zM28,6H29V7H28zM30,6H31V7H30zM2,7H3V8H2zM8,7H9V8H8zM10,7H11V8H10zM14,7H15V8H14zM19,7H20V8H19zM21,7H22V8H21zM24,7H25V8H24zM30,7H31V8H30zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM25,8H26V9H25zM26,8H27V9H26zM27,8H28V9H27zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM10,9H11V10H10zM12,9H13V10H12zM13,9H14V10H13zM14,9H15V10H14zM16,9H17V10H16zM17,9H18V10H17zM19,9H20V10H19zM20,9H21V10H20zM22,9H23V10H22zM2,10H3V11H2zM6,10H7V11H6zM8,10H9V11H8zM9,10H10V11H9zM10,10H11V11H10zM11,10H12V11H11zM13,10H14V11H13zM15,10H16V11H15zM16,10H17V11H16zM17,10H18V11H17zM19,10H20V11H19zM22,10H23V11H22zM23,10H24V11H23zM24,10H25V11H24zM25,10H26V11H25zM26,10H27V11H26zM27,10H28V11H27zM30,10H31V11H30zM2,11H3V12H2zM3,11H4V12H3zM4,11H5V12H4zM5,11H6V12H5zM6,11H7V12H6zM12,11H13V12H12zM13,11H14V12H13zM16,11H17V12H16zM17,11H18V12H17zM18,11H19V12H18zM19,11H20V12H19zM20,11H21V12H20zM24,11H25V12H24zM25,11H26V12H25zM26,11H27V12H26zM27,11H28V12H27zM28,11H29V12H28zM29,11H30V12H29zM30,11H31V12H30zM5,12H6V13H5zM6,12H7V13H6zM7,12H8V13H7zM8,12H9V13H8zM9,12H10V13H9zM10,12H11V13H10zM12,12H13V13H12zM15,12H16V13H15zM16,12H17V13H16zM17,12H18V13H17zM19,12H20V13H19zM20,12H21V13H20zM22,12H23V13H22zM23,12H24V13H23zM25,12H26V13H25zM26,12H27V13H26zM30,12H31V13H30zM3,13H4V14H3zM6,13H7V14H6zM7,13H8V14H7zM9,13H10V14H9zM10,13H11V14H10zM11,13H12V14H11zM13,13H14V14H13zM14,13H15V14H14zM15,13H16V14H15zM17,13H18V14H17zM18,13H19V14H18zM19,13H20V14H19zM20,13H21V14H20zM24,13H25V14H24zM26,13H27V14H26zM27,13H28V14H27zM29,13H30V14H29zM30,13H31V14H30zM2,14H3V15H2zM4,14H5V15H4zM6,14H7V15H6zM8,14H9V15H8zM10,14H11V15H10zM12,14H13V15H12zM14,14H15V15H14zM15,14H16V15H15zM19,14H20V15H19zM20,14H21V15H20zM21,14H22V15H21zM22,14H23V15H22zM23,14H24V15H23zM29,14H30V15H29zM2,15H3V16H2zM4,15H5V16H4zM5,15H6V16H5zM7,15H8V16H7zM10,15H11V16H10zM13,15H14V16H13zM14,15H16V16H14zM16,15H17V16H16zM17,15H18V16H17zM18,15H19V16H18zM19,15H20V16H19zM20,15H21V16H20zM24,15H25V16H24zM26,15H27V16H26zM27,15H28V16H27zM28,15H29V16H28zM29,15H30V16H29zM30,15H31V16H30zM3,16H4V17H3zM4,16H5V17H4zM7,16H8V17H7zM8,16H9V17H8zM11,16H12V17H11zM12,16H13V17H12zM14,16H15V17H14zM17,16H18V17H17zM18,16H19V17H18zM20,16H21V17H20zM26,16H27V17H26zM27,16H28V17H27zM28,16H29V17H28zM30,16H31V17H30zM2,17H3V18H2zM5,17H6V18H5zM6,17H7V18H6zM7,17H8V18H7zM13,17H14V18H13zM14,17H15V18H14zM16,17H17V18H16zM17,17H18V18H17zM19,17H20V18H19zM20,17H21V18H20zM21,17H22V18H21zM23,17H24V18H23zM29,17H30V18H29zM30,17H31V18H30zM6,18H7V19H6zM7,18H8V19H7zM8,18H9V19H8zM9,18H10V19H9zM13,18H14V19H13zM14,18H15V19H14zM15,18H16V19H15zM16,18H17V19H16zM18,18H19V19H18zM19,18H20V19H19zM21,18H22V19H21zM23,18H24V19H23zM25,18H26V19H25zM29,18H30V19H29zM2,19H3V20H2zM4,19H5V20H4zM6,19H7V20H6zM10,19H11V20H10zM11,19H12V20H11zM13,19H14V20H13zM14,19H15V20H14zM17,19H18V20H17zM18,19H20V20H18zM20,19H21V20H20zM23,19H24V20H23zM24,19H25V20H24zM25,19H26V20H25zM26,19H27V20H26zM27,19H28V20H27zM29,19H30V20H29zM30,19H31V20H30zM4,20H5V21H4zM5,20H6V21H5zM8,20H9V21H8zM9,20H10V21H9zM12,20H13V21H12zM15,20H16V21H15zM16,20H17V21H16zM17,20H18V21H17zM19,20H20V21H19zM22,20H23V21H22zM23,20H24V21H23zM24,20H25V21H24zM26,20H27V21H26zM28,20H29V21H28zM30,20H31V21H30zM4,21H5V22H4zM11,21H12V22H11zM12,21H13V22H12zM15,21H16V22H15zM17,21H18V22H17zM18,21H19V22H18zM19,21H20V22H19zM20,21H21V22H20zM21,21H22V22H21zM22,21H23V22H22zM29,21H30V22H29zM30,21H31V22H30zM2,22H3V23H2zM3,22H4V23H3zM4,22H5V23H4zM5,22H6V23H5zM6,22H7V23H6zM8,22H9V23H8zM9,22H10V23H9zM10,22H11V23H10zM11,22H12V23H11zM13,22H14V23H13zM15,22H16V23H15zM19,22H20V23H19zM21,22H22V23H21zM22,22H23V23H22zM23,22H24V23H23zM24,22H25V23H24zM25,22H26V23H25zM26,22H27V23H26zM27,22H28V23H27zM30,22H31V23H30zM10,23H11V24H10zM11,23H12V24H11zM13,23H14V24H13zM14,23H15V24H14zM15,23H16V24H15zM16,23H17V24H16zM17,23H18V24H17zM18,23H19V24H18zM19,23H20V24H19zM20,23H21V24H20zM21,23H22V24H21zM22,23H23V24H22zM26,23H27V24H26zM30,23H31V24H30zM2,24H3V25H2zM3,24H4V25H3zM4,24H5V25H4zM5,24H6V25H5zM6,24H7V25H6zM7,24H8V25H7zM8,24H9V25H8zM10,24H11V25H10zM11,24H12V25H11zM12,24H13V25H12zM14,24H15V25H14zM17,24H18V25H17zM19,24H20V25H19zM20,24H21V25H20zM21,24H22V25H21zM22,24H23V25H22zM24,24H25V25H24zM26,24H27V25H26zM27,24H28V25H27zM28,24H29V25H28zM30,24H31V25H30zM2,25H3V26H2zM8,25H9V26H8zM12,25H13V26H12zM13,25H14V26H13zM16,25H17V26H16zM18,25H19V26H18zM19,25H20V26H19zM21,25H22V26H21zM22,25H23V26H22zM26,25H27V26H26zM29,25H30V26H29zM2,26H3V27H2zM4,26H5V27H4zM5,26H6V27H5zM6,26H7V27H6zM8,26H9V27H8zM10,26H11V27H10zM11,26H12V27H11zM13,26H14V27H13zM15,26H16V27H15zM16,26H17V27H16zM19,26H20V27H19zM21,26H22V27H21zM22,26H23V27H22zM23,26H24V27H23zM24,26H25V27H24zM25,26H26V27H25zM26,26H27V27H26zM27,26H28V27H27zM29,26H30V27H29zM2,27H3V28H2zM4,27H5V28H4zM5,27H6V28H5zM6,27H7V28H6zM8,27H9V28H8zM11,27H12V28H11zM12,27H13V28H12zM13,27H14V28H13zM14,27H15V28H14zM17,27H18V28H17zM18,27H19V28H18zM19,27H20V28H19zM20,27H21V28H20zM22,27H23V28H22zM23,27H24V28H23zM25,27H26V28H25zM30,27H31V28H30zM2,28H3V29H2zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM8,28H9V29H8zM11,28H12V29H11zM14,28H15V29H14zM15,28H16V29H15zM16,28H17V29H16zM17,28H18V29H17zM18,28H19V29H18zM19,28H20V29H19zM27,28H28V29H27zM28,28H29V29H28zM29,28H30V29H29zM30,28H31V29H30zM2,29H3V30H2zM8,29H9V30H8zM11,29H12V30H11zM14,29H15V30H14zM16,29H17V30H16zM19,29H20V30H19zM20,29H21V30H20zM22,29H23V30H22zM24,29H25V30H24zM26,29H27V30H26zM27,29H28V30H27zM29,29H30V30H29zM30,29H31V30H30zM2,30H3V31H2zM3,30H4V31H3zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM7,30H8V31H7zM8,30H9V31H8zM10,30H11V31H10zM11,30H12V31H11zM12,30H13V31H12zM16,30H17V31H16zM17,30H18V31H17zM19,30H20V31H19zM22,30H23V31H22zM25,30H26V31H25zM26,30H27V31H26zM29,30H30V31H29z" fill="#0a0e1a"/>
+        </svg>
+      </div>
+      <p style="color:var(--dim);font-size:.82rem;margin-bottom:24px">Scan to open Instagram</p>
+      <a class="btn" href="https://www.instagram.com/alincatal1n_" target="_blank" rel="noopener">Instagram →</a>
+    </div>
+    <p class="disclaimer">Past performance is not indicative of future results. Figures shown are taken from Darwinex Zero DarwinIA Silver as of the dates indicated and reflect simulated and/or allocation-funded performance under the platform's independent Risk Engine. Investing carries risk of loss, including total loss of capital. This page is informational and is not investment advice or an offer to invest.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fin">
+    <div class="brand"><span class="dot"></span>THREE&nbsp;DARWINS</div>
+    <span class="mono" style="color:var(--dim)">Strategy One · Strategy Two · Strategy Three — Darwinex Zero</span>
+  </div>
+</footer>
+
+<script>
+/* ----- monthly returns data ----- */
+const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const DATA={
+  "Strategy One":{2025:[null,null,null,null,null,8.18,3.21,4.76,1.26,2.96,8.68,3.92],2026:[-1.01,null,null,null,null,null,null,null,null,null,null,null],t:{2025:37.73,2026:-1.01}},
+  "Strategy Two":{2025:[null,null,null,null,6.14,8.63,4.41,6.88,-2.68,4.14,4.77,2.05],2026:[1.31,null,null,null,null,null,null,null,null,null,null,null],t:{2025:39.43,2026:1.31}},
+  "Strategy Three":{2025:[null,null,null,2.44,5.16,2.06,0.00,2.37,-7.95,5.14,3.12,0.49],2026:[1.27,null,null,null,null,null,null,null,null,null,null,null],t:{2025:12.89,2026:1.27}}
+};
+function colour(v){
+  if(v===null) return "transparent";
+  const a=Math.min(Math.abs(v)/9,1)*0.85+0.12;
+  return v>=0?`rgba(142,240,40,${a})`:`rgba(255,77,109,${a})`;
+}
+function txt(v){if(v===null)return"#5c647c";return Math.min(Math.abs(v)/9,1)>0.55?(v>=0?"#0a0e1a":"#fff"):(v>=0?"#8ef028":"#ff4d6d");}
+function renderHeat(key){
+  const head=document.getElementById('heat-head');
+  head.innerHTML='<th class="row-h">Year</th>'+MONTHS.map(m=>`<th>${m}</th>`).join('')+'<th>Total</th>';
+  const body=document.getElementById('heat-body');
+  const d=DATA[key];
+  body.innerHTML=Object.keys(d).filter(y=>y!=='t').map(y=>{
+    const cells=d[y].map(v=>{
+      if(v===null)return`<td><span class="empty">—</span></td>`;
+      return`<td><span class="cell" style="background:${colour(v)};color:${txt(v)}">${v>=0?'+':''}${v.toFixed(2)}%</span></td>`;
+    }).join('');
+    const tot=d.t[y];
+    return`<tr><td class="row-h">${y}</td>${cells}<td class="total-col ${tot>=0?'pos':'neg'}">${tot>=0?'+':''}${tot.toFixed(2)}%</td></tr>`;
+  }).join('');
+}
+renderHeat('Strategy One');
+document.querySelectorAll('.switcher button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelector('.switcher button.active').classList.remove('active');
+    b.classList.add('active');renderHeat(b.dataset.d);
+  });
+});
+
+/* ----- count up ----- */
+function animateCount(el){
+  const to=parseFloat(el.dataset.to),dec=+(el.dataset.dec||0),
+    pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',grp=el.dataset.group;
+  const dur=1400,t0=performance.now();
+  function fmt(n){let s=n.toFixed(dec);if(grp)s=Number(n.toFixed(0)).toLocaleString('en-US');return pre+s+suf;}
+  function step(t){
+    const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=fmt(to*e);
+    if(p<1)requestAnimationFrame(step);else el.textContent=fmt(to);
+  }
+  requestAnimationFrame(step);
+}
+window.addEventListener('load',()=>setTimeout(()=>document.querySelectorAll('.count').forEach(animateCount),650));
+
+/* ----- scroll reveal + bars ----- */
+const io=new IntersectionObserver((ents)=>{
+  ents.forEach(en=>{
+    if(en.isIntersecting){
+      en.target.classList.add('in');
+      en.target.querySelectorAll('.bar').forEach(b=>b.style.width=b.dataset.w+'%');
+      io.unobserve(en.target);
+    }
+  });
+},{threshold:.18});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
+
+
