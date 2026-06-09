@@ -1,4 +1,4 @@
-# Presentation Page Trading Alin
+# Alin Trading
 
 ## View the Live Page
-[Open Site Alin](https://zeic1.github.io/Present_Page_Alin/alin_presentare_v4.html)
+[Open Alin Trading](https://zeic1.github.io/Present_Page_Alin/alin_presentare_v4.html)
